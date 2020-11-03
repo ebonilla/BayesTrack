@@ -67,8 +67,8 @@ def get_data_lorenz_coupled(state0, t0, T, delta_t, c_e=0.08, c=1, c_z=1, tau=0.
 
 def main_single():
     state0 = [1.0, 1.0, 1.0]
-    states, _ = get_data_lorenz_single(state0=state0, t0=0.0, T=40.0, delta_t=0.01)
-    print(states)
+    states, _ = get_data_lorenz_single(state0=state0, t0=0.0, T=1.0, delta_t=0.01)
+    print(states.shape)
     fig = plt.figure()
     ax = fig.gca(projection='3d')
     ax.plot(states[:, 0], states[:, 1], states[:, 2])
@@ -94,7 +94,7 @@ def unpack_state_coupled(states):
 def main_coupled():
     delta_t = 0.01
     state0 = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-    states, _ = get_data_lorenz_coupled(state0=state0, t0=0.0, T=1000.0, delta_t=delta_t)
+    states, _ = get_data_lorenz_coupled(state0=state0, t0=0.0, T=100.0, delta_t=delta_t)
     print(states.shape)
 
     x_e, y_e, z_e, x_t, y_t, z_t, X, Y, Z = unpack_state_coupled(states)
